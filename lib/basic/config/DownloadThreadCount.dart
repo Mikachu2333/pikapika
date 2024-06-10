@@ -25,10 +25,6 @@ Widget downloadThreadCountSetting() {
         ),
         subtitle: Text("$_downloadThreadCount"),
         onTap: () async {
-          if (!isPro) {
-            defaultToast(context, "请先发电再使用");
-            return;
-          }
           int? value = await chooseListDialog(context, "选择下载线程数", _values);
           if (value != null) {
             await method.saveDownloadThreadCount(value);
