@@ -176,7 +176,7 @@ jobs:
         if: steps.check_asset.outputs.skip_build != 'true'
         uses: actions/checkout@v3
         with:
-          repository: 'niuhuan/pikapika-go-core'
+          repository: 'Mikachu2333/pikapika-go-core'
           token: ${{ secrets.GH_TOKEN }}
           path: 'go'
 
@@ -284,7 +284,7 @@ jobs:
         if: steps.check_asset.outputs.skip_build != 'true' && matrix.config.target == 'windows'
         run: |
           hover build windows
-          curl -JOL https://github.com/niuhuan/static-resources/releases/download/windows_build_tools/Resource_Hacker_5.1.8.zip
+          curl -JOL https://github.com/Mikachu2333/static-resources/releases/download/windows_build_tools/Resource_Hacker_5.1.8.zip
           Expand-Archive .\Resource_Hacker_5.1.8.zip
           cmd /c "Resource_Hacker_5.1.8\ResourceHacker.exe" -open go\build\outputs\windows-release\pikapika.exe -save go\build\outputs\windows-release\pikapika.exe -action addskip -res go/assets/icon.ico -mask ICONGROUP,MAINICON,0
           cd go\build\outputs\windows-release
@@ -312,7 +312,7 @@ jobs:
       - name: Append application-identifier (ios)
         if: steps.check_asset.outputs.skip_build != 'true' && matrix.config.target == 'ios'
         run: |
-          /usr/libexec/PlistBuddy -c 'Add :application-identifier string niuhuan.pikapika' ios/Runner/Info.plist
+          /usr/libexec/PlistBuddy -c 'Add :application-identifier string Mikachu2333.pikapika' ios/Runner/Info.plist
 
       - name: Build (ios)
         if: steps.check_asset.outputs.skip_build != 'true' && matrix.config.target == 'ios'
