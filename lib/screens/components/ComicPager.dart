@@ -197,10 +197,6 @@ class _ControllerComicPagerState extends State<ControllerComicPager> {
                             if (num == 0 || num > comicsPage.pages) {
                               return;
                             }
-                            if (num > 10 && !isPro) {
-                              defaultToast(context, "发电以后才能看10页以后的内容");
-                              return;
-                            }
                             _currentPage = num;
                             _load();
                           },
@@ -233,10 +229,6 @@ class _ControllerComicPagerState extends State<ControllerComicPager> {
                   minWidth: 0,
                   onPressed: () {
                     if (comicsPage.page < comicsPage.pages) {
-                      if (_currentPage >= 10 && !isPro) {
-                        defaultToast(context, "发电以后才能看10页以后的内容");
-                        return;
-                      }
                       _currentPage = comicsPage.page + 1;
                       _load();
                     }
@@ -448,10 +440,6 @@ class _StreamComicPagerState extends State<StreamComicPager> {
                                 if (num == 0 || num > _maxPage) {
                                   return;
                                 }
-                                if (_currentPage >= 10 && !isPro) {
-                                  defaultToast(context, "发电以后才能看10页以后的内容");
-                                  return;
-                                }
                                 _currentPage = num;
                                 _onSetOffset(num);
                               },
@@ -477,9 +465,6 @@ class _StreamComicPagerState extends State<StreamComicPager> {
   }
 
   Widget? _buildLoadingCell() {
-    if (_noPro) {
-      return FitButton(onPressed: () {}, text: '发电以后才能看10页以后的内容');
-    }
     if (_error) {
       return FitButton(
           onPressed: () {
