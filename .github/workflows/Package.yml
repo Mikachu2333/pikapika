@@ -79,7 +79,7 @@ jobs:
         name: checkout core
         uses: actions/checkout@v3
         with:
-          repository: 'niuhuan/pikapika-go-core'
+          repository: 'Mikachu2333/pikapika-go-core'
           token: ${{ secrets.GH_TOKEN }}
           path: 'go'
       - if: steps.need_build.outputs.need_build == 'true'
