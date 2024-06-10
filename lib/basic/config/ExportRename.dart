@@ -38,10 +38,6 @@ Widget exportRenameSetting() {
         ),
         subtitle: Text(_exportRename ? "是" : "否"),
         onTap: () async {
-          if (!isPro) {
-            defaultToast(context, "请先发电再使用");
-            return;
-          }
           await _chooseExportRename(context);
           setState(() {});
         },
